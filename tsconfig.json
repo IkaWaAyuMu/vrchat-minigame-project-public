@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+      "module": "esnext",
+      "moduleResolution": "node",
+      "target": "es2022",
+      "noImplicitAny": true,
+      "removeComments": true,
+      "resolveJsonModule": true,
+      "allowSyntheticDefaultImports": true,
+    }
+  }
