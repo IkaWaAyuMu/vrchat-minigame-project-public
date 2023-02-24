@@ -31,17 +31,14 @@ async function WriteData(sheetIndex) {
     let temp;
     for (const row of data)
         temp += row.englishText + "\n";
-    temp.slice(0, -1);
-    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_EN.txt`, temp);
+    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_EN`, temp);
     temp = "";
     for (const row of data)
         temp += row.thaiText + "\n";
-    temp.slice(0, -1);
-    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_TH.txt`, temp);
+    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_TH`, temp);
     temp = "";
     for (const row of data)
         temp += row.japaneseText + "\n";
-    temp.slice(0, -1);
-    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_JP.txt`, temp);
+    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_JP`, temp);
     console.log(`Done written ${sheet.title} to file.`);
 }
