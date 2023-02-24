@@ -27,6 +27,7 @@ async function WriteData(sheetIndex) {
         };
         data.push(temp);
     }
+    console.log(`${data.length} fetched. Writing to file...`);
     let temp;
     for (const row of data)
         temp += row.englishText + "\n";
@@ -37,4 +38,5 @@ async function WriteData(sheetIndex) {
     for (const row of data)
         temp += row.japaneseText + "\n";
     fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_JP.txt`, temp);
+    console.log(`Done writing to file.`);
 }
