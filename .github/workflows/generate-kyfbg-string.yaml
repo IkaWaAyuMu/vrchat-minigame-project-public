@@ -12,8 +12,6 @@ jobs:
   fetch-and-generate-data:
     runs-on: ubuntu-latest
     environment: master
-    permission: 
-      contents: write
 
     steps:
     - uses: actions/checkout@v3
