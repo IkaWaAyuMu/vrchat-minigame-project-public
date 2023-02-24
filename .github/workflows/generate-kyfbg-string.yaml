@@ -26,7 +26,7 @@ jobs:
       run: mkdir ./data/KnowYourFriendBoardgame/
 
     - name: Set permission
-      run: chmod +rw ./data/KnowYourFriendBoardgame/*
+      run: chmod +rw ./data/KnowYourFriendBoardgame/
 
     - name: Fetch and generate the data
       run: pnpm run build:kyfbg
