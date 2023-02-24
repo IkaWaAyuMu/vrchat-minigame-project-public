@@ -1,12 +1,7 @@
 name: generate-kyfbg-string
 run-name: ${{ github.actor }} is updating "Know Your Friend Boardgame" data.
 
-permission: 
-  contents: write
-
 on: workflow_dispatch
-  
-environment: master
 
 env:
   SERVICE_EMAIL: ${{ secrets.SERVICE_EMAIL }}
@@ -16,7 +11,9 @@ env:
 jobs:
   fetch-and-generate-data:
     runs-on: ubuntu-latest
-    
+    environment: master
+    permission: 
+      contents: write
 
     steps:
     - uses: actions/checkout@v3
