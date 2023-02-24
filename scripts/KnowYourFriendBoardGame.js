@@ -27,16 +27,21 @@ async function WriteData(sheetIndex) {
         };
         data.push(temp);
     }
-    console.log(`${data.length} fetched. Writing to file...`);
+    console.log(`${data.length} rows fetched. Writing ${sheet.title} to file...`);
     let temp;
     for (const row of data)
         temp += row.englishText + "\n";
+    temp.slice(0, -1);
     fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_EN.txt`, temp);
+    temp = "";
     for (const row of data)
         temp += row.thaiText + "\n";
+    temp.slice(0, -1);
     fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_TH.txt`, temp);
+    temp = "";
     for (const row of data)
         temp += row.japaneseText + "\n";
+    temp.slice(0, -1);
     fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_JP.txt`, temp);
-    console.log(`Done writing to file.`);
+    console.log(`Done written ${sheet.title} to file.`);
 }
