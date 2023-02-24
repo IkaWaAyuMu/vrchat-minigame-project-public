@@ -22,4 +22,4 @@ jobs:
         node-version: latest
 
     - name: Run the script
-      run: pnpm run build:kyfbg
+      run: npm run build:kyfbg
