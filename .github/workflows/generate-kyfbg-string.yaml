@@ -16,10 +16,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Set up node 
-      uses: actions/setup-node@v3
-      with:
-        node-version: latest
+    - name: Set pnpm up
+      uses: pnpm/action-setup@v2
+        with:
+          version: latest
+          run_install: true
 
-    - name: Run the script
+    - name: Fetch and generate the data
       run: pnpm run build:kyfbg
