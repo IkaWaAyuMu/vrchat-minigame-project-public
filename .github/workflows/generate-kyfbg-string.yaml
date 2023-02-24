@@ -4,6 +4,7 @@ run-name: ${{ github.actor }} is updating "Know Your Friend Boardgame" data.
 permission: 
   contents: write
 
+
 environment: master
 
 env:
@@ -12,16 +13,17 @@ env:
   KYFBG_SHEETID: ${{ vars.KYFBG_SHEETID }}
 
 jobs:
-  runs-on: ubuntu-latest
-  
+  fetch-and-generate-data:
+    runs-on: ubuntu-latest
+    
 
-  steps:
-  - uses: actions/checkout@v3
+    steps:
+    - uses: actions/checkout@v3
 
-  - name: Set up node 
-    uses: actions/setup-node@v3
-    with:
-      node-version: latest
+    - name: Set up node 
+      uses: actions/setup-node@v3
+      with:
+        node-version: latest
 
-  - name: Run the script
-    run: pnpm run build:kyfbg
+    - name: Run the script
+      run: pnpm run build:kyfbg
