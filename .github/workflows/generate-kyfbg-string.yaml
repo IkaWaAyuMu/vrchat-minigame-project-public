@@ -1,0 +1,27 @@
+name: generate-kyfbg-string
+run-name: ${{ github.actor }} is updating "Know Your Friend Boardgame" data.
+
+permission: 
+  contents: write
+
+environment: master
+
+env:
+  SERVICE_EMAIL: ${{ secrets.SERVICE_EMAIL }}
+  PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+  KYFBG_SHEETID: ${{ vars.KYFBG_SHEETID }}
+
+jobs:
+  runs-on: ubuntu-latest
+  
+
+  steps:
+  - uses: actions/checkout@v3
+
+  - name: Set up node 
+    uses: actions/setup-node@v3
+    with:
+      node-version: latest
+
+  - name: Run the script
+    run: pnpm run build:kyfbg
