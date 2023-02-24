@@ -22,6 +22,9 @@ jobs:
         version: latest
         run_install: true
 
+    - name: Set permission
+      run: chmod +rw ./data/KnowYourFriendBoardgame/*
+
     - name: Fetch and generate the data
       run: pnpm run build:kyfbg
 
