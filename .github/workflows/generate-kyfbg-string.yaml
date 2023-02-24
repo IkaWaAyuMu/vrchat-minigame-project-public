@@ -4,6 +4,8 @@ run-name: ${{ github.actor }} is updating "Know Your Friend Boardgame" data.
 permission: 
   contents: write
 
+on: workflow_dispatch
+  
 environment: master
 
 env:
