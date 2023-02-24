@@ -18,9 +18,9 @@ jobs:
 
     - name: Set pnpm up
       uses: pnpm/action-setup@v2
-        with:
-          version: latest
-          run_install: true
+      with:
+        version: latest
+        run_install: true
 
     - name: Fetch and generate the data
       run: pnpm run build:kyfbg
