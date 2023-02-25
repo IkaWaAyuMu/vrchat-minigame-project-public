@@ -22,9 +22,6 @@ jobs:
         version: latest
         run_install: true
 
-    - name: Create directories
-      run: mkdir ./data/ && mkdir ./data/KnowYourFriendBoardgame/
-
     - name: Set permission
       run: chmod +rw ./data/KnowYourFriendBoardgame/
 
