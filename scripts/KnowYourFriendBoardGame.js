@@ -7,13 +7,21 @@ await doc.useServiceAccountAuth({
     private_key: process.env.PRIVATE_KEY,
 });
 await doc.loadInfo();
-await WriteData(4);
+await GetMetadata();
 await WriteData(5);
 await WriteData(6);
 await WriteData(7);
+await WriteData(8);
+async function GetMetadata() {
+    const sheet = doc.sheetsByIndex[3];
+    const rows = await sheet.getRows({ offset: 0 });
+    console.log("Metadata fetched.");
+    fs.writeFileSync(`./data/KnowYourFriendBoardgame/Metadata`, rows[0].UpdateTime);
+    console.log("Metadata written to file.");
+}
 async function WriteData(sheetIndex) {
     const sheet = doc.sheetsByIndex[sheetIndex];
-    const rows = await sheet.getRows({ offset: 2 });
+    const rows = await sheet.getRows({ offset: 1 });
     const data = [];
     for (let i = 0; i < rows.length; i++) {
         const row = rows[i];
@@ -28,7 +36,7 @@ async function WriteData(sheetIndex) {
         data.push(temp);
     }
     console.log(`${data.length} rows fetched. Writing ${sheet.title} to file...`);
-    let temp;
+    let temp = "";
     for (const row of data)
         temp += row.englishText + "\n";
     fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_EN`, temp);
