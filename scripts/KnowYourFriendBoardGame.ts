@@ -54,15 +54,15 @@ async function WriteData(sheetIndex: number) {
     
     let temp: string = ""
     //EN
-    for (const row of data) temp += row.englishText + "\n"
+    for (const row of data) temp += row.englishText + (row == data[data.length-1] ? "" : "\n")
     fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_EN`, temp)
     //TH
     temp = ""
-    for (const row of data) temp += row.thaiText + "\n"
+    for (const row of data) temp += row.thaiText + (row == data[data.length-1] ? "" : "\n")
     fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_TH`, temp)
     //JP
     temp = ""
-    for (const row of data) temp += row.japaneseText + "\n"
+    for (const row of data) temp += row.japaneseText + (row == data[data.length-1] ? "" : "\n")
     fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_JP`, temp)
 
     console.log(`Done written ${sheet.title} to file.`)
