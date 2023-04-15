@@ -6,7 +6,7 @@ on: workflow_dispatch
 env:
   SERVICE_EMAIL: ${{ secrets.SERVICE_EMAIL }}
   PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
-  KYFBG_SHEETID: ${{ vars.NHIE_SHEETID }}
+  NHIE_SHEETID: ${{ vars.NHIE_SHEETID }}
 
 jobs:
   fetch-and-generate-data:
