@@ -2,7 +2,8 @@
   "name": "vrchat-minigame-project-public",
   "type": "module",
   "scripts": {
-    "build:kyfbg": "node ./scripts/KnowYourFriendBoardGame.js"
+    "build:kyfbg": "node ./scripts/KnowYourFriendBoardGame.js",
+    "build:nhie": "node ./scripts/NeverHaveIEver.js"
   },
   "devDependencies": {
     "typescript": "^4.9.5"

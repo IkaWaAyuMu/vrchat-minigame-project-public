@@ -1,0 +1,37 @@
+name: generate-nhie-string
+run-name: ${{ github.ACTOR }} is updating "Never Have I Ever" data.
+
+on: workflow_dispatch
+
+env:
+  SERVICE_EMAIL: ${{ secrets.SERVICE_EMAIL }}
+  PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+  KYFBG_SHEETID: ${{ vars.NHIE_SHEETID }}
+
+jobs:
+  fetch-and-generate-data:
+    runs-on: ubuntu-latest
+    environment: master
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set pnpm up
+      uses: pnpm/action-setup@v2
+      with:
+        version: latest
+        run_install: true
+
+    - name: Set permission
+      run: chmod +rw ./data/NeverHaveIEver/
+
+    - name: Fetch and generate the data
+      run: pnpm run build:nhie
+
+    - name: Commit changes
+      run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'actions@github.com'
+          git add .
+          git commit -m '${{ github.SERVER_URL }}${{ github.GITHUB_REPOSITORY }}/actions/runs/${{ github.RUN_ID }}'
+          git push
