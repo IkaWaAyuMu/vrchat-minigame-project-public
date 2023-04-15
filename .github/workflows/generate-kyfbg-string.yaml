@@ -33,5 +33,5 @@ jobs:
           git config --global user.name 'GitHub Actions'
           git config --global user.email 'actions@github.com'
           git add .
-          git commit -m '${{ github.SERVER_URL }}/${{ github.GITHUB_REPOSITORY }}/actions/runs/${{ github.RUN_ID }}'
+          git commit -m '${{ github.SERVER_URL }}${{ github.GITHUB_REPOSITORY }}/actions/runs/${{ github.RUN_ID }}'
           git push
