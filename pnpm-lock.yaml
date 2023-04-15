@@ -2,14 +2,14 @@ lockfileVersion: 5.4
 
 specifiers:
   '@types/google-spreadsheet': ^3.3.1
-  '@types/node': ^18.14.1
+  '@types/node': ^18.15.11
   dotenv: ^16.0.3
   google-spreadsheet: ^3.3.0
   typescript: ^4.9.5
 
 dependencies:
   '@types/google-spreadsheet': 3.3.1
-  '@types/node': 18.14.1
+  '@types/node': 18.15.11
   dotenv: 16.0.3
   google-spreadsheet: 3.3.0
 
@@ -22,8 +22,8 @@ packages:
     resolution: {integrity: sha512-nvwAEr+uKK/IQ0hfH3agtRX2RnKI5+D/pUnDpJ/+D8nSbrvvV+fgyA8lGjoAHIHcls19NTzkQBm1T7vbF5iy8A==}
     dev: false
 
-  /@types/node/18.14.1:
-    resolution: {integrity: sha512-QH+37Qds3E0eDlReeboBxfHbX9omAcBCXEzswCu6jySP642jiM3cYSIkU/REqwhCUqXdonHFuBfJDiAJxMNhaQ==}
+  /@types/node/18.15.11:
+    resolution: {integrity: sha512-E5Kwq2n4SbMzQOn6wnmBjuK9ouqlURrcZDVfbo9ftDDTFt3nk7ZKK4GMOzoYgnpQJKcxwQw+lGaBvvlMo0qN/Q==}
     dev: false
 
   /abort-controller/3.0.0:
