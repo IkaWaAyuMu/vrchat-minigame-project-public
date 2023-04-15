@@ -19,7 +19,7 @@ jobs:
     - name: Set pnpm up
       uses: pnpm/action-setup@v2
       with:
-        version: latest
+        version: 7
         run_install: true
 
     - name: Set permission
