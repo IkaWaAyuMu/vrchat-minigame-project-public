@@ -24,19 +24,20 @@ await WriteData(7) // Pool 2
 await WriteData(8) // Pool 3
 
 async function GetMetadata() {
+    console.log("KYFBG[Metadata]: fetching.")
     const sheet = doc.sheetsByIndex[3]
     const rows = await sheet.getRows({ offset: 0 })
 
-    console.log("Metadata fetched.")
+    console.log("KYFBG[Metadata]: fetched. Version: " + rows[0].UpdateTime)
     fs.writeFileSync(`./data/KnowYourFriendBoardgame/Metadata`, rows[0].UpdateTime)
-    console.log("Metadata written to file.")
+    console.log("KYFBG[Metadata]: written to file.")
 }
 
 async function WriteData(sheetIndex: number) {
     const sheet = doc.sheetsByIndex[sheetIndex]
     const rows = await sheet.getRows({ offset: 1 })
-
     const data: KnowYourFriendBoardgameQuestion[] = []
+    
     for (let i=0; i<rows.length; i++) {
         const row = rows[i]
         const englishText = row.englishText
@@ -50,21 +51,10 @@ async function WriteData(sheetIndex: number) {
         data.push(temp)
     }
 
-    console.log(`${data.length} rows fetched. Writing ${sheet.title} to file...`)
+    console.log(`KYFBG[Pool ${sheet.title}]: ${data.length} rows fetched.`)
     
-    let temp: string = ""
-    //EN
-    for (const row of data) temp += row.englishText + (row == data[data.length-1] ? "" : "\n")
-    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_EN`, temp)
-    //TH
-    temp = ""
-    for (const row of data) temp += row.thaiText + (row == data[data.length-1] ? "" : "\n")
-    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_TH`, temp)
-    //JP
-    temp = ""
-    for (const row of data) temp += row.japaneseText + (row == data[data.length-1] ? "" : "\n")
-    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}_JP`, temp)
+    fs.writeFileSync(`./data/KnowYourFriendBoardgame/${sheet.title}.json`, JSON.stringify(data))
 
-    console.log(`Done written ${sheet.title} to file.`)
+    console.log(`KYFBG[Pool ${sheet.title}]: written to file`)
 } 
     
